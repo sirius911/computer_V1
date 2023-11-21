@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 13:47:10 by clorin            #+#    #+#              #
-#    Updated: 2023/11/21 14:11:58 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/21 23:10:59 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ import subprocess
 import os
 
 from termcolor import colored
-from computor import main
+from polynome import Polynome
+from parsing import prepare_expression, parse_expression
 from colors import remove_color_codes
 from utils import REELS
 import re
@@ -26,6 +27,8 @@ equations_test = [
     {'equation': '5X - 4 = ', 'reduct': None, 'discr': None, 'result': None, 'valid': False},
     {'equation': ' = 2X^2', 'reduct': None, 'discr': None, 'result': None, 'valid': False},
     {'equation': '5x - 4 = 0', 'reduct': None, 'discr': None, 'result': None, 'valid': False},
+    {'equation': '4 * X^0 = 8 * X^0', 'reduct': '-4.0 = 0', 'discr': 0.0, 'result': None, 'valid': True },
+    {'equation': '5 * X^0 = 4* X^0 + 7 * X^1', 'reduct': '1.0 -7.0x = 0', 'discr': 49, 'result': 0.14285714285714285, 'valid': True},
     {'equation': '2X^3 - 5X^2 +4X -21 = 0', 'reduct': '-21.0 +4.0x -5.0x² +2.0x³ = 0', 'discr': None, 'result': None, 'valid': False},
     {'equation': '5X - 4 = 0', 'reduct': '-4.0 +5.0x = 0', 'discr': 25, 'result': 0.8, 'valid': True},
     {'equation': '2X + 3 = 0', 'reduct': '3.0 +2.0x = 0', 'discr': 4, 'result': -1.5, 'valid': True},
@@ -69,7 +72,7 @@ def extract_result(lines):
                 result = [(solutions_match.group(1).strip()), (solutions_match.group(2).strip())]
         elif line.startswith('The solution is'):
             result = float(line[len('The solution is '):].strip())
-        elif line.startswith('All the x ∈ ℝ are the sollution !!'):
+        elif line.startswith('All the x ∈ ℝ are the solution !!'):
             result = REELS
     return (reduced_form, discriminant, result, valid_result)
 
@@ -114,6 +117,16 @@ def main():
         good_test = test(equation) and good_test
     print(f"\n GLOBAL RESULT : ", end='')
     if good_test:
+        print(f"✅")
+    else:
+        print(f"❌") 
+
+    polynome = parse_expression(prepare_expression("6X^0 + 11X^1 + 5*X^2 = 1*X^0 + 1 * X^1"))
+    print(f"\nPour {polynome} : ")
+    x, _ = polynome.solution()
+    fx = polynome.f(x)
+    print(f"f({x}) = {fx} => ", end='')
+    if fx == 0:
         print(f"✅")
     else:
         print(f"❌") 

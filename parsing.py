@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 01:35:31 by clorin            #+#    #+#              #
-#    Updated: 2023/11/11 17:56:28 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/21 22:55:38 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,8 +50,7 @@ def parser(e):
             else:
                 poid_x = 1
             power = 1
-            ret = PowerFunction(float(poid_x), int(power), X)
-            return (ret)
+            return (PowerFunction(float(poid_x), int(power), X))
     if index == len_elem and e[index - 1] == ".":
         print("Error format [{0}]".format(e))
         return None
@@ -106,8 +105,7 @@ def parser(e):
         else:
             print("Error format: The expression is not well formatted in element [{0}]".format(e))
             return None
-    ret = PowerFunction(float(poid_x), int(power), X)
-    return (ret)
+    return (PowerFunction(float(poid_x), int(power), X))
 
 def parse_expression(expression):
     """

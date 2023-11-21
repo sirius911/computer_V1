@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 01:41:38 by clorin            #+#    #+#              #
-#    Updated: 2023/11/21 19:51:50 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/21 22:56:16 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,10 @@ class PowerFunction:
     def __init__(self, a, b, X):
         self._coefficient = a
         self._exponent = b
-        self.X = X
+        if b == 0:
+            self.X = False
+        else:
+            self.X = X
 
     def __str__(self):
         if self.X:
@@ -53,7 +56,7 @@ class Polynome:
 
     def get_coeff(self, power):
         """
-            retrun the coefficient of the polynome with power
+            return the coefficient of the polynome with power
             or 0 if it does'nt exist
         """
         if power in self.poly:
@@ -97,7 +100,7 @@ class Polynome:
                 ret += pf.__str__() + ' '
             ret += "= 0"
         else:
-            ret = f"0 = {-self.constant}"
+            ret = f"{self.constant} = 0"
         return ret
     
     def sort(self):
@@ -121,7 +124,6 @@ class Polynome:
         in a polynome : Ax²+Bx+C=0
         return A, B, C and Δ = B² - 4AC or None
         """
-        # print(f"ax²+bx+c : a = {self.poly[2]._coefficient} b = {self.poly[1]._coefficient} c = {self.constant}")
         A = self.get_coeff(2)
         B = self.get_coeff(1)
         C = self.constant
