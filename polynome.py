@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 01:41:38 by clorin            #+#    #+#              #
-#    Updated: 2023/11/11 17:12:36 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/21 19:51:50 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -156,11 +156,11 @@ class Polynome:
                 if C != 0:
                     print(f"{colors.red}There's no solution !!{colors.reset}")
                 else:
-                    print(f"All the {colors.green}x{colors.reset} ∈ {colors.yellow}{REELS}{colors.reset} are the sollution !!")    
+                    print(f"All the {colors.green}x{colors.reset} ∈ {colors.yellow}{REELS}{colors.reset} are the solution !!")    
                     x1 = x2 = REELS
         elif delta == 0:
             x1 = x2 = (-B) / (2 * A)
-            print(f"{colors.yellow}Dicriminant = 0{colors.reset}, the unique solution is : {colors.green}{x1}{colors.reset}")
+            print(f"{colors.yellow}Discriminant = 0{colors.reset}, the unique solution is : {colors.green}{x1}{colors.reset}")
         elif delta > 0:
             x1 = (-B - (delta ** 0.5)) / (2 * A)
             x2 = (-B + (delta ** 0.5)) / (2 * A)

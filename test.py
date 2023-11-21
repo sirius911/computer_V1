@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 13:47:10 by clorin            #+#    #+#              #
-#    Updated: 2023/11/11 17:57:33 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/21 14:11:58 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ import subprocess
 import os
 
 from termcolor import colored
-from computer_v1 import main
+from computor import main
 from colors import remove_color_codes
 from utils import REELS
 import re
@@ -78,7 +78,7 @@ def test(equation):
     exec command computer_v1 with the equation
     and return if the result is expected
     """
-    script_path = os.path.abspath('computer_v1.py')
+    script_path = os.path.abspath('computor.py')
     valid_equ = equation['valid']
     eq = equation['equation']
     print(f"[{equation['equation']}] ", end = '')
