@@ -6,7 +6,7 @@
 #    By: clorin <clorin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/11 13:47:10 by clorin            #+#    #+#              #
-#    Updated: 2023/11/21 23:10:59 by clorin           ###   ########.fr        #
+#    Updated: 2023/11/22 09:32:38 by clorin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ import subprocess
 import os
 
 from termcolor import colored
-from polynome import Polynome
 from parsing import prepare_expression, parse_expression
 from colors import remove_color_codes
 from utils import REELS

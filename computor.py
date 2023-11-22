@@ -16,7 +16,7 @@ from parsing import parse_expression, prepare_expression
 from colors import colors
 
 def usage():
-    print("Usage : \npython3 main.py '[aX2] + bX + c = 0]'")
+    print("Usage : \npython3 computor.py '[aX2] + bX + c = 0]'")
 
 def titre():
     print("   ____                            _             __     ___ ")
